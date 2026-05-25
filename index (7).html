@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora - Windows XP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Fondo del escritorio XP -->
+  <div class="desktop">
+
+    <!-- Ventana de la calculadora -->
+    <div class="window" id="calc-window">
+
+      <!-- Barra de título -->
+      <div class="title-bar" id="title-bar">
+        <div class="title-bar-left">
+          <img src="https://win98icons.alexmeub.com/icons/png/calculator-2.png" alt="icon" class="title-icon" />
+          <span class="title-text">Calculadora</span>
+        </div>
+        <div class="title-bar-buttons">
+          <button class="tb-btn minimize" title="Minimizar">_</button>
+          <button class="tb-btn maximize" title="Maximizar">□</button>
+          <button class="tb-btn close" title="Cerrar" onclick="closeCalc()">✕</button>
+        </div>
+      </div>
+
+      <!-- Barra de menú -->
+      <div class="menu-bar">
+        <span class="menu-item">Ver</span>
+        <span class="menu-item">Editar</span>
+        <span class="menu-item">Ayuda</span>
+      </div>
+
+      <!-- Cuerpo de la calculadora -->
+      <div class="calc-body">
+
+        <!-- Pantalla -->
+        <div class="display-wrapper">
+          <div class="display-label" id="display-expr">&nbsp;</div>
+          <input class="display" id="display" type="text" value="0" readonly />
+        </div>
+
+        <!-- Botones -->
+        <div class="button-grid">
+
+          <!-- Fila 1 -->
+          <button class="btn btn-fn" onclick="handleBackspace()">⌫</button>
+          <button class="btn btn-fn" onclick="handleCE()">CE</button>
+          <button class="btn btn-fn" onclick="handleClear()">C</button>
+          <button class="btn btn-fn" onclick="handlePlusMinus()">±</button>
+          <button class="btn btn-op" onclick="handlePercent()">%</button>
+
+          <!-- Fila 2 -->
+          <button class="btn btn-num" onclick="appendNum('7')">7</button>
+          <button class="btn btn-num" onclick="appendNum('8')">8</button>
+          <button class="btn btn-num" onclick="appendNum('9')">9</button>
+          <button class="btn btn-op" onclick="handleOp('/')">÷</button>
+          <button class="btn btn-fn" onclick="handleSqrt()">√</button>
+
+          <!-- Fila 3 -->
+          <button class="btn btn-num" onclick="appendNum('4')">4</button>
+          <button class="btn btn-num" onclick="appendNum('5')">5</button>
+          <button class="btn btn-num" onclick="appendNum('6')">6</button>
+          <button class="btn btn-op" onclick="handleOp('*')">×</button>
+          <button class="btn btn-fn" onclick="handleReciprocal()">1/x</button>
+
+          <!-- Fila 4 -->
+          <button class="btn btn-num" onclick="appendNum('1')">1</button>
+          <button class="btn btn-num" onclick="appendNum('2')">2</button>
+          <button class="btn btn-num" onclick="appendNum('3')">3</button>
+          <button class="btn btn-op" onclick="handleOp('-')">−</button>
+          <button class="btn btn-eq" rowspan="2" id="eq-btn" onclick="handleEquals()">=</button>
+
+          <!-- Fila 5 -->
+          <button class="btn btn-num btn-zero" onclick="appendNum('0')">0</button>
+          <button class="btn btn-num" onclick="appendDot()">.</button>
+          <button class="btn btn-op" onclick="handleOp('+')">+</button>
+
+        </div>
+      </div>
+
+      <!-- Barra de estado -->
+      <div class="status-bar">
+        <span id="status-msg">Listo</span>
+      </div>
+    </div>
+
+    <!-- Barra de tareas XP -->
+    <div class="taskbar">
+      <button class="start-btn">
+        <span class="start-logo">⊞</span> Inicio
+      </button>
+      <div class="taskbar-task active">
+        <img src="https://win98icons.alexmeub.com/icons/png/calculator-2.png" alt="" class="task-icon" />
+        Calculadora
+      </div>
+      <div class="taskbar-clock" id="clock">00:00</div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

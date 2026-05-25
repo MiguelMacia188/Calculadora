@@ -1,0 +1,449 @@
+/* ============================================================
+   CALCULADORA WINDOWS XP — style.css
+   ============================================================ */
+
+/* ── Variables de color XP ── */
+:root {
+  --xp-blue-dark:    #0a246a;
+  --xp-blue-mid:     #3169c6;
+  --xp-blue-light:   #6497e8;
+  --xp-title-start:  #0a246a;
+  --xp-title-end:    #a6c5f7;
+  --xp-green:        #3c8031;
+  --xp-green-dark:   #245a1d;
+  --xp-start-start:  #3c8031;
+  --xp-start-end:    #56a844;
+  --xp-body:         #ece9d8;
+  --xp-border-light: #ffffff;
+  --xp-border-mid:   #b0b0b0;
+  --xp-border-dark:  #808080;
+  --xp-shadow:       #404040;
+  --xp-btn-face:     #ece9d8;
+  --xp-btn-hover:    #dff0ff;
+  --xp-btn-active:   #c5daf7;
+  --xp-op-face:      #dce5f5;
+  --xp-red:          #c0392b;
+  --xp-display-bg:   #ffffff;
+  --xp-taskbar:      #245edb;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Escritorio ── */
+body {
+  font-family: "Tahoma", "MS Sans Serif", sans-serif;
+  font-size: 11px;
+  background: none;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  background:
+    radial-gradient(ellipse at 30% 40%, #4a8fd4 0%, #1a5fa8 40%, #0b3476 100%);
+  background-image:
+    radial-gradient(ellipse at 30% 40%, #4a8fd4 0%, #1a5fa8 40%, #0b3476 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cellipse cx='200' cy='200' rx='300' ry='200' fill='%2356a844' opacity='0.55'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ── Ventana principal ── */
+.window {
+  width: 270px;
+  background: var(--xp-body);
+  border: 2px solid var(--xp-blue-dark);
+  border-radius: 8px 8px 4px 4px;
+  box-shadow:
+    2px 2px 0 var(--xp-border-light) inset,
+    -1px -1px 0 var(--xp-border-dark) inset,
+    4px 6px 16px rgba(0,0,0,0.55);
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+/* ── Barra de título ── */
+.title-bar {
+  height: 28px;
+  background: linear-gradient(
+    to bottom,
+    #1061c5 0%,
+    #245dbe 8%,
+    #1e57b8 40%,
+    #1650a9 60%,
+    #2462c6 80%,
+    #4a8fd8 92%,
+    #3b7ecf 100%
+  );
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 0 6px;
+  cursor: default;
+}
+
+.title-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.title-icon {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+}
+
+.title-text {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  letter-spacing: 0.2px;
+}
+
+.title-bar-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.tb-btn {
+  width: 21px;
+  height: 19px;
+  border: none;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.tb-btn.minimize,
+.tb-btn.maximize {
+  background: linear-gradient(to bottom, #5ba8e8 0%, #4090d8 50%, #2070c0 100%);
+  color: #fff;
+  border: 1px solid #1a5fa0;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;
+}
+
+.tb-btn.close {
+  background: linear-gradient(to bottom, #e8534a 0%, #d43228 50%, #b82010 100%);
+  color: #fff;
+  border: 1px solid #8b1a10;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.3) inset;
+}
+
+.tb-btn:hover { filter: brightness(1.15); }
+.tb-btn:active { filter: brightness(0.85); }
+
+/* ── Barra de menú ── */
+.menu-bar {
+  background: var(--xp-body);
+  border-bottom: 1px solid var(--xp-border-mid);
+  padding: 1px 4px;
+  display: flex;
+  gap: 2px;
+}
+
+.menu-item {
+  padding: 2px 6px;
+  cursor: default;
+  color: #000;
+  font-size: 11px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.menu-item:hover {
+  background: var(--xp-blue-mid);
+  color: #fff;
+  border-color: var(--xp-blue-dark);
+}
+
+/* ── Cuerpo calculadora ── */
+.calc-body {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Pantalla ── */
+.display-wrapper {
+  background: var(--xp-display-bg);
+  border: 2px solid var(--xp-border-dark);
+  border-color: var(--xp-border-dark) var(--xp-border-light) var(--xp-border-light) var(--xp-border-dark);
+  box-shadow: 1px 1px 0 var(--xp-border-dark) inset;
+  padding: 2px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.display-label {
+  font-size: 10px;
+  color: #888;
+  min-height: 14px;
+  width: 100%;
+  text-align: right;
+  font-family: "Tahoma", sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.display {
+  width: 100%;
+  text-align: right;
+  font-size: 22px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: #000;
+  background: transparent;
+  border: none;
+  outline: none;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+/* ── Grid de botones ── */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 4px;
+}
+
+/* Botón base XP */
+.btn {
+  height: 34px;
+  border-radius: 3px;
+  font-family: "Tahoma", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: none;
+  position: relative;
+}
+
+/* Botones numéricos */
+.btn-num {
+  background: linear-gradient(to bottom, #f4f2ec 0%, #e8e4d8 50%, #d8d4c4 100%);
+  color: #000;
+  border: 1px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow:
+    0 1px 0 #fff inset,
+    1px 0 0 #fff inset,
+    -1px -1px 0 #606060 inset;
+}
+
+.btn-num:hover {
+  background: linear-gradient(to bottom, #dff0ff 0%, #c8e0f8 50%, #b4d0ec 100%);
+}
+
+.btn-num:active {
+  background: linear-gradient(to bottom, #b0c8e8 0%, #c0d8f4 100%);
+  box-shadow:
+    0 1px 0 #606060 inset,
+    1px 0 0 #606060 inset,
+    -1px -1px 0 #fff inset;
+  transform: translateY(1px);
+}
+
+/* Botones operadores */
+.btn-op {
+  background: linear-gradient(to bottom, #dce8fc 0%, #c0d4f4 50%, #a8c0ec 100%);
+  color: #000060;
+  border: 1px solid;
+  border-color: #ffffff #8080c0 #8080c0 #ffffff;
+  box-shadow:
+    0 1px 0 #e8f0ff inset,
+    1px 0 0 #e8f0ff inset,
+    -1px -1px 0 #6060a0 inset;
+}
+
+.btn-op:hover {
+  background: linear-gradient(to bottom, #c0dcff 0%, #a4c4f8 50%, #88a8f0 100%);
+}
+
+.btn-op:active {
+  background: linear-gradient(to bottom, #8090c0 0%, #a0b4d8 100%);
+  box-shadow:
+    0 1px 0 #6060a0 inset,
+    1px 0 0 #6060a0 inset,
+    -1px -1px 0 #e8f0ff inset;
+  transform: translateY(1px);
+}
+
+/* Botones función */
+.btn-fn {
+  background: linear-gradient(to bottom, #ece8dc 0%, #dcd8c8 50%, #ccc8b4 100%);
+  color: #400000;
+  border: 1px solid;
+  border-color: #ffffff #707060 #707060 #ffffff;
+  box-shadow:
+    0 1px 0 #f0ecdc inset,
+    1px 0 0 #f0ecdc inset,
+    -1px -1px 0 #505040 inset;
+}
+
+.btn-fn:hover {
+  background: linear-gradient(to bottom, #ffe0e0 0%, #f0c8c8 50%, #e0b0b0 100%);
+}
+
+.btn-fn:active {
+  background: linear-gradient(to bottom, #c09090 0%, #d0a8a8 100%);
+  box-shadow:
+    0 1px 0 #505040 inset,
+    1px 0 0 #505040 inset,
+    -1px -1px 0 #f0ecdc inset;
+  transform: translateY(1px);
+}
+
+/* Botón igual */
+.btn-eq {
+  background: linear-gradient(to bottom, #e8c430 0%, #d4a800 50%, #b88c00 100%);
+  color: #fff;
+  border: 1px solid;
+  border-color: #ffe878 #806000 #806000 #ffe878;
+  box-shadow:
+    0 1px 0 #ffd840 inset,
+    1px 0 0 #ffd840 inset,
+    -1px -1px 0 #806000 inset;
+  font-size: 16px;
+  grid-row: span 2;
+}
+
+.btn-eq:hover {
+  background: linear-gradient(to bottom, #f0d840 0%, #e0c010 50%, #c8a400 100%);
+}
+
+.btn-eq:active {
+  background: linear-gradient(to bottom, #a07800 0%, #c09000 100%);
+  box-shadow:
+    0 1px 0 #806000 inset,
+    1px 0 0 #806000 inset,
+    -1px -1px 0 #ffd840 inset;
+  transform: translateY(1px);
+}
+
+/* Cero ancho doble */
+.btn-zero {
+  grid-column: span 2;
+}
+
+/* ── Barra de estado ── */
+.status-bar {
+  border-top: 1px solid var(--xp-border-mid);
+  background: var(--xp-body);
+  padding: 2px 6px;
+  font-size: 10px;
+  color: #444;
+  border-radius: 0 0 3px 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-bar::before {
+  content: "";
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--xp-green);
+  border-radius: 50%;
+}
+
+/* ── Barra de tareas ── */
+.taskbar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 30px;
+  background: linear-gradient(to bottom, #2869e4 0%, #1a54d0 30%, #1040b8 60%, #2060d4 100%);
+  border-top: 2px solid #5a90f8;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  gap: 4px;
+  z-index: 100;
+}
+
+.start-btn {
+  height: 24px;
+  padding: 0 10px;
+  background: linear-gradient(to bottom, #5aaa44 0%, #3c8830 50%, #2a6820 100%);
+  color: #fff;
+  border: 1px solid #1a5010;
+  border-radius: 12px;
+  font-family: "Tahoma", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.start-btn:hover { filter: brightness(1.15); }
+.start-btn:active { filter: brightness(0.85); }
+
+.start-logo {
+  font-size: 14px;
+}
+
+.taskbar-task {
+  height: 22px;
+  padding: 0 8px;
+  background: linear-gradient(to bottom, #1a50c0 0%, #2464d8 100%);
+  color: #fff;
+  border: 1px solid #5a88f8;
+  border-radius: 3px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.taskbar-task.active {
+  background: linear-gradient(to bottom, #0a3090 0%, #1850b8 100%);
+  border-color: #3060c0;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset;
+}
+
+.task-icon {
+  width: 14px; height: 14px;
+  image-rendering: pixelated;
+}
+
+.taskbar-clock {
+  margin-left: auto;
+  color: #fff;
+  font-size: 11px;
+  padding: 0 8px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+}
