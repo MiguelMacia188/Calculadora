@@ -1,13 +1,10 @@
-/* ============================================================
-   CALCULADORA WINDOWS XP — script.js
-   ============================================================ */
 
 /* ── Estado ── */
-let currentValue  = "0";   // Número en pantalla
-let storedValue   = null;  // Primer operando
-let currentOp     = null;  // Operador pendiente (+,-,*,/)
-let freshResult   = false; // true cuando se acaba de pulsar =
-let expressionStr = "";    // Texto de la expresión para el display secundario
+let currentValue  = "0";   
+let storedValue   = null;  
+let currentOp     = null;  
+let freshResult   = false; 
+let expressionStr = "";    
 
 /* ── Refs al DOM ── */
 const display     = document.getElementById("display");
